@@ -81,8 +81,7 @@ pipeline {
     
     post {
         always {
-            emailext body: '''hi team,
-the deployment is complete''', recipientProviders: [developers()], subject: 'buildUAT', to: 'truonghe2019@gmail.com'
+            emailext body: 'abcxyz', subject: 'con kec', to: 'truonghe2019@gmail.com'
         }
     }
 }
