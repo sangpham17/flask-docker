@@ -1,25 +1,25 @@
-pipeline {
+// pipeline {
 
-  agent none
+//   agent none
 
-  environment {
-    DOCKER_IMAGE = "nhtua/flask-docker"
-  }
+//   environment {
+//     DOCKER_IMAGE = "nhtua/flask-docker"
+//   }
 
-  stages {
-    stage("Test") {
-      agent {
-          docker {
-            image 'python:3.8-slim-buster'
-            args '-u 0:0 -v /tmp:/root/.cache'
-          }
-      }
-      steps {
-        sh "pip install poetry"
-        sh "poetry install"
-        sh "poetry run pytest"
-      }
-    }
+//   stages {
+//     stage("Test") {
+//       agent {
+//           docker {
+//             image 'python:3.8-slim-buster'
+//             args '-u 0:0 -v /tmp:/root/.cache'
+//           }
+//       }
+//       steps {
+//         sh "pip install poetry"
+//         sh "poetry install"
+//         sh "poetry run pytest"
+//       }
+//     }
 
     // stage("build") {
     //   agent { node {label 'master'}}
@@ -43,12 +43,40 @@ pipeline {
     // }
   }
 
-  post {
-    success {
-      echo "SUCCESSFUL"
+//   post {
+//     success {
+//       echo "SUCCESSFUL"
+//     }
+//     failure {
+//       echo "FAILED"
+//     }
+//   }
+// }
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('bill') {
+            steps {
+                echo 'dang build'
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo 'dang deploy'
+            }
+        }
+        stage('tet') {
+            steps {
+                echo 'dang tet'
+            }
+        }
     }
-    failure {
-      echo "FAILED"
-    }
-  }
 }
+
