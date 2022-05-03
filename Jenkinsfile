@@ -81,7 +81,7 @@ pipeline {
     
     post {
         always {
-            emailext body: 'abcxyz', subject: 'con kec', to: 'truonghe2019@gmail.com'
+            emailext body: 'abcxyz', subject: 'con kec', to: 'mitsumisang@gmail.com'
         }
     }
 }
